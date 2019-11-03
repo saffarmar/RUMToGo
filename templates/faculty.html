@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'layout.html' %}
 
-</body>
-</html>
+{% block body %}
+	<br>
+	<h1>Faculty <br></h1>
+	<hr>
+
+	<h4>Search</h4>
+	<input class="form-control" id="myInput" type="text" placeholder="First names, last names...">
+	<br>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th class="text-center">Faculty</th>
+				<th class="text-center">Phone</th>
+                <th class="text-center">Email</th>
+				<th class="text-center">Office</th>
+				<th class="text-center">Office Hours</th>
+			</tr>
+		</thead>
+		<tbody id="searchableTable">
+			{% for person in faculty %}
+			<tr>
+				<td id="faculty_name">{{person.name}}</td>
+				<td>{{person.phone}}</td>
+				<td>{{person.email}}</td>
+                <td>{{person.location}}</td>
+                <td>{{person.officehours}}</td>
+
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+
+{% endblock %}

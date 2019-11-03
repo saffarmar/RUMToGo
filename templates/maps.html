@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'layout.html' %}
 
-</body>
-</html>
+{% block body %}
+	<br>
+	<h1>Maps <br></h1>
+	<hr>
+
+	<h4>Search</h4>
+	<input class="form-control" id="myInput" type="text" placeholder="Location name, building name...">
+	<br>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th class="text-center">Map</th>
+			</tr>
+		</thead>
+		<tbody id="searchableTable">
+			{% for building in buildings %}
+			<tr>
+				<td id="building_image">{{building.image}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+
+{% endblock %}
